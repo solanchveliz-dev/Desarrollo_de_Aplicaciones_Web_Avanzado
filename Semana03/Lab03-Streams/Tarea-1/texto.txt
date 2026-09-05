@@ -1,0 +1,4 @@
+Los streams permiten trabajar con archivos de manera eficiente.
+Node.js puede leer, transformar y escribir información.
+En este laboratorio estamos aprendiendo sobre archivos y streams.
+Este texto será convertido completamente a mayúsculas.
