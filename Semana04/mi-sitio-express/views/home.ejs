@@ -1,27 +1,215 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %></title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
-</head>
-<body class="container center-align">
 
-    <nav>
-      <div class="nav-wrapper teal">
-        <a href="/" class="brand-logo center">Mi Sitio</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="/">Inicio</a></li>
-          <li><a href="/about">Acerca de</a></li>
-          <li><a href="/contact">Contacto</a></li>
-          <li><a href="/admin">Admin</a></li>
-        </ul>
-      </div>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title><%= title %></title>
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    >
+
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body class="principal-page">
+
+    <nav class="blue-grey darken-4">
+
+        <div class="nav-wrapper container">
+
+            <a href="/" class="brand-logo">
+                <i class="material-icons left">
+                    web
+                </i>
+
+                Mi Sitio
+            </a>
+
+            <ul class="right hide-on-med-and-down">
+                <li class="active">
+                    <a href="/">Inicio</a>
+                </li>
+
+                <li>
+                    <a href="/about">Acerca de</a>
+                </li>
+
+                <li>
+                    <a href="/contact">Contacto</a>
+                </li>
+
+                <li>
+                    <a href="/admin">Admin</a>
+                </li>
+
+                <li>
+                    <a href="/peliculas">Películas</a>
+                </li>
+            </ul>
+
+        </div>
+
     </nav>
 
-    <h4>Bienvenido a la Página de Inicio</h4>
+    <header class="home-hero">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <div class="container center-align">
+
+            <i class="large material-icons">
+                devices
+            </i>
+
+            <h1>Bienvenido a mi sitio web</h1>
+
+            <p class="flow-text">
+                Aplicación desarrollada con Node.js,
+                Express, EJS y Materialize.
+            </p>
+
+            <a
+                href="/peliculas"
+                class="btn-large waves-effect waves-light amber darken-3"
+            >
+                <i class="material-icons left">
+                    movie
+                </i>
+
+                Ver catálogo de películas
+            </a>
+
+        </div>
+
+    </header>
+
+    <main class="container home-content">
+
+        <div class="row">
+
+            <div class="col s12 m4">
+
+                <div class="card hoverable center-align home-card">
+
+                    <div class="card-content">
+
+                        <i class="medium material-icons blue-text">
+                            email
+                        </i>
+
+                        <span class="card-title">
+                            Contacto
+                        </span>
+
+                        <p>
+                            Envía tus consultas mediante
+                            nuestro formulario.
+                        </p>
+
+                    </div>
+
+                    <div class="card-action">
+                        <a href="/contact">
+                            Ir al formulario
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col s12 m4">
+
+                <div class="card hoverable center-align home-card">
+
+                    <div class="card-content">
+
+                        <i class="medium material-icons green-text">
+                            admin_panel_settings
+                        </i>
+
+                        <span class="card-title">
+                            Administración
+                        </span>
+
+                        <p>
+                            Consulta los mensajes enviados
+                            por los usuarios.
+                        </p>
+
+                    </div>
+
+                    <div class="card-action">
+                        <a href="/admin">
+                            Ver mensajes
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col s12 m4">
+
+                <div class="card hoverable center-align home-card">
+
+                    <div class="card-content">
+
+                        <i class="medium material-icons red-text">
+                            local_movies
+                        </i>
+
+                        <span class="card-title">
+                            CineList
+                        </span>
+
+                        <p>
+                            Registra y organiza tus películas
+                            y series favoritas.
+                        </p>
+
+                    </div>
+
+                    <div class="card-action">
+                        <a href="/peliculas">
+                            Abrir catálogo
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer class="page-footer blue-grey darken-4">
+
+        <div class="footer-copyright">
+
+            <div class="container center-align">
+                © 2026 Desarrollo de Aplicaciones Web Avanzado
+            </div>
+
+        </div>
+
+    </footer>
+
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js">
+    </script>
+
 </body>
 </html>

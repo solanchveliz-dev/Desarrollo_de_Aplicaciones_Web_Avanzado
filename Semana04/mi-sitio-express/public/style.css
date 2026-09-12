@@ -1,16 +1,366 @@
+/* Estilos generales */
+
 body {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+    margin: 0;
 }
 
-h1 {
-  color: #333;
+.principal-page {
+    background-color: #f4f6f9;
+    min-height: 100vh;
 }
 
-a {
-  display: block;
-  margin-top: 20px;
-  text-decoration: none;
-  color: blue;
+.brand-logo {
+    font-weight: 700;
+}
+
+.home-hero {
+    background: linear-gradient(
+        135deg,
+        #263238,
+        #1565c0
+    );
+
+    color: white;
+    padding: 70px 15px;
+}
+
+.home-hero h1 {
+    color: white;
+    font-size: 3.4rem;
+    font-weight: 700;
+}
+
+.home-content {
+    padding-top: 45px;
+    padding-bottom: 45px;
+}
+
+.home-card {
+    min-height: 260px;
+    border-radius: 12px;
+}
+
+.home-card .card-title {
+    font-weight: 600;
+}
+
+.about-card,
+.contact-card,
+.message-card,
+.empty-message {
+    border-radius: 12px;
+}
+
+.about-buttons {
+    margin-top: 30px;
+}
+
+.message-text {
+    background-color: #f4f6f9;
+    border-radius: 8px;
+    margin-top: 15px !important;
+    padding: 15px;
+}
+
+/* Página de películas */
+
+.cinema-page {
+    background-color: #10131c;
+    color: #242634;
+    min-height: 100vh;
+}
+
+.cinema-nav {
+    background-color: #171923;
+}
+
+.cinema-nav .brand-logo {
+    font-weight: 700;
+}
+
+.cinema-nav .active {
+    background-color: #7d2436;
+}
+
+.cinema-hero {
+    min-height: 390px;
+    display: flex;
+    align-items: center;
+    color: white;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(12, 14, 22, 0.95),
+            rgba(12, 14, 22, 0.35)
+        ),
+        url(
+            "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1800&q=80"
+        )
+        center / cover;
+}
+
+.cinema-hero-content {
+    padding: 60px 15px;
+}
+
+.cinema-eyebrow {
+    color: #e4b44f;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.cinema-hero h1 {
+    color: white;
+    font-size: 3.5rem;
+    font-weight: 700;
+    max-width: 700px;
+    margin: 15px 0;
+}
+
+.cinema-hero p {
+    font-size: 1.2rem;
+    max-width: 560px;
+    margin-bottom: 30px;
+}
+
+.cinema-gold {
+    background-color: #c9952e;
+}
+
+.cinema-gold:hover {
+    background-color: #a9761d;
+}
+
+.cinema-content {
+    padding-top: 40px;
+    padding-bottom: 50px;
+}
+
+.cinema-stats {
+    margin-bottom: 20px;
+}
+
+.cinema-stat-card {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    border-radius: 12px;
+}
+
+.cinema-stat-icon {
+    color: #8b2940;
+    font-size: 3rem;
+}
+
+.cinema-stat-icon.pending {
+    color: #e67e22;
+}
+
+.cinema-stat-icon.done {
+    color: #2e8b57;
+}
+
+.cinema-stat-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.cinema-stat-label {
+    display: block;
+    color: #667080;
+}
+
+.cinema-form-card {
+    border-radius: 12px;
+    border-top: 6px solid #8b2940;
+}
+
+.cinema-form-card .card-content {
+    padding: 35px;
+}
+
+.cinema-section-title {
+    display: flex !important;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700 !important;
+}
+
+.cinema-section-title i {
+    color: #8b2940;
+}
+
+.cinema-wine {
+    background-color: #8b2940;
+}
+
+.cinema-wine:hover {
+    background-color: #681d30;
+}
+
+.cinema-list-section {
+    margin-top: 50px;
+}
+
+.cinema-list-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    color: white;
+    margin-bottom: 18px;
+}
+
+.cinema-list-heading h2 {
+    color: white;
+    margin: 8px 0 0;
+}
+
+.cinema-count {
+    color: #e4b44f;
+    font-weight: 600;
+}
+
+.cinema-empty {
+    border-radius: 12px;
+    padding: 50px 25px;
+}
+
+.cinema-empty-icon {
+    color: #c9952e;
+    font-size: 5rem;
+}
+
+.cinema-empty h3 {
+    font-size: 1.6rem;
+}
+
+.cinema-empty p {
+    color: #667080;
+}
+
+.cinema-table-card {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.cinema-table-card table {
+    background-color: white;
+}
+
+.cinema-table-card thead {
+    background-color: #8b2940;
+    color: white;
+}
+
+.cinema-table-card th,
+.cinema-table-card td {
+    padding: 16px;
+}
+
+.status-pendiente {
+    background-color: #ffe0b2;
+    color: #9a5b00;
+}
+
+.status-viendo {
+    background-color: #bbdefb;
+    color: #145a86;
+}
+
+.status-finalizada {
+    background-color: #c8e6c9;
+    color: #216b2a;
+}
+
+.cinema-feature {
+    display: flex;
+    align-items: center;
+    background-color: #202330;
+    color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 45px;
+}
+
+.cinema-feature-image {
+    padding: 0 !important;
+}
+
+.cinema-feature img {
+    display: block;
+    width: 100%;
+    min-height: 260px;
+    object-fit: cover;
+}
+
+.cinema-feature-copy {
+    padding: 35px !important;
+}
+
+.cinema-feature-copy i {
+    color: #e4b44f;
+    font-size: 2.8rem;
+}
+
+.cinema-feature-copy h2 {
+    color: white;
+    font-size: 1.8rem;
+}
+
+.cinema-footer {
+    background-color: #171923;
+    color: #c8cbd4;
+    padding: 28px;
+    text-align: center;
+}
+
+/* Página 404 */
+
+.error-page {
+    background-color: #f4f6f9;
+}
+
+.error-content {
+    padding-top: 90px;
+}
+
+.error-content h1 {
+    color: #c62828;
+    font-size: 7rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* Diseño para teléfonos */
+
+@media (max-width: 600px) {
+    .home-hero h1,
+    .cinema-hero h1 {
+        font-size: 2.3rem;
+    }
+
+    .cinema-nav .brand-logo {
+        font-size: 1.4rem;
+    }
+
+    .cinema-nav .right a {
+        padding: 0 8px;
+    }
+
+    .cinema-list-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .cinema-count {
+        margin-top: 10px;
+    }
+
+    .cinema-feature {
+        display: block;
+    }
 }

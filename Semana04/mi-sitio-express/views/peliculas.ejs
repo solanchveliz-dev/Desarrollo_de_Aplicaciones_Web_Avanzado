@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title><%= title %></title>
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    >
+
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body class="cinema-page">
+
+    <nav class="cinema-nav">
+
+        <div class="nav-wrapper container">
+
+            <a href="/" class="brand-logo">
+
+                <i class="material-icons left">
+                    movie
+                </i>
+
+                CineList
+            </a>
+
+            <ul class="right">
+                <li>
+                    <a href="/">Inicio</a>
+                </li>
+
+                <li class="active">
+                    <a href="/peliculas">Películas</a>
+                </li>
+            </ul>
+
+        </div>
+
+    </nav>
+
+    <header class="cinema-hero">
+
+        <div class="container cinema-hero-content">
+
+            <span class="cinema-eyebrow">
+                MI COLECCIÓN PERSONAL
+            </span>
+
+            <h1>
+                Organiza tus películas y series
+            </h1>
+
+            <p>
+                Registra lo que quieres ver, lo que estás
+                viendo y tus historias favoritas.
+            </p>
+
+            <a
+                href="#formulario"
+                class="btn-large cinema-gold waves-effect waves-light"
+            >
+                Agregar registro
+
+                <i class="material-icons right">
+                    arrow_downward
+                </i>
+            </a>
+
+        </div>
+
+    </header>
+
+    <main class="container cinema-content">
+
+        <!-- Tarjetas de cantidades -->
+        <section class="row cinema-stats">
+
+            <div class="col s12 m4">
+
+                <div class="card-panel cinema-stat-card">
+
+                    <i class="material-icons cinema-stat-icon">
+                        movie
+                    </i>
+
+                    <div>
+                        <span class="cinema-stat-number">
+                            <%= peliculas.length %>
+                        </span>
+
+                        <span class="cinema-stat-label">
+                            Registros
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col s12 m4">
+
+                <div class="card-panel cinema-stat-card">
+
+                    <i class="material-icons cinema-stat-icon pending">
+                        schedule
+                    </i>
+
+                    <div>
+                        <span class="cinema-stat-number">
+
+                            <%= peliculas.filter(
+                                pelicula =>
+                                pelicula.estado === "Pendiente"
+                            ).length %>
+
+                        </span>
+
+                        <span class="cinema-stat-label">
+                            Pendientes
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col s12 m4">
+
+                <div class="card-panel cinema-stat-card">
+
+                    <i class="material-icons cinema-stat-icon done">
+                        check_circle
+                    </i>
+
+                    <div>
+                        <span class="cinema-stat-number">
+
+                            <%= peliculas.filter(
+                                pelicula =>
+                                pelicula.estado === "Finalizada"
+                            ).length %>
+
+                        </span>
+
+                        <span class="cinema-stat-label">
+                            Finalizadas
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Formulario -->
+        <section
+            id="formulario"
+            class="card cinema-form-card"
+        >
+
+            <div class="card-content">
+
+                <span class="card-title cinema-section-title">
+
+                    <i class="material-icons">
+                        add_circle
+                    </i>
+
+                    Nuevo registro
+                </span>
+
+                <p class="grey-text">
+                    Completa los cinco datos de la película o serie.
+                </p>
+
+                <form
+                    action="/peliculas"
+                    method="POST"
+                >
+
+                    <div class="row">
+
+                        <div class="input-field col s12 m6">
+
+                            <i class="material-icons prefix">
+                                title
+                            </i>
+
+                            <input
+                                id="titulo"
+                                name="titulo"
+                                type="text"
+                                required
+                            >
+
+                            <label for="titulo">
+                                Título
+                            </label>
+
+                        </div>
+
+                        <div class="input-field col s12 m6">
+
+                            <i class="material-icons prefix">
+                                category
+                            </i>
+
+                            <input
+                                id="genero"
+                                name="genero"
+                                type="text"
+                                required
+                            >
+
+                            <label for="genero">
+                                Género
+                            </label>
+
+                        </div>
+
+                        <div class="input-field col s12 m4">
+
+                            <i class="material-icons prefix">
+                                event
+                            </i>
+
+                            <input
+                                id="anio"
+                                name="anio"
+                                type="number"
+                                min="1900"
+                                max="2100"
+                                required
+                            >
+
+                            <label for="anio">
+                                Año
+                            </label>
+
+                        </div>
+
+                        <div class="input-field col s12 m4">
+
+                            <i class="material-icons prefix">
+                                live_tv
+                            </i>
+
+                            <input
+                                id="plataforma"
+                                name="plataforma"
+                                type="text"
+                                required
+                            >
+
+                            <label for="plataforma">
+                                Plataforma
+                            </label>
+
+                        </div>
+
+                        <div class="input-field col s12 m4">
+
+                            <select
+                                id="estado"
+                                name="estado"
+                                required
+                            >
+
+                                <option
+                                    value=""
+                                    disabled
+                                    selected
+                                >
+                                    Selecciona un estado
+                                </option>
+
+                                <option value="Pendiente">
+                                    Pendiente
+                                </option>
+
+                                <option value="Viendo">
+                                    Viendo
+                                </option>
+
+                                <option value="Finalizada">
+                                    Finalizada
+                                </option>
+
+                            </select>
+
+                            <label for="estado">
+                                Estado
+                            </label>
+
+                        </div>
+
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="btn-large cinema-wine waves-effect waves-light"
+                    >
+                        Guardar película
+
+                        <i class="material-icons right">
+                            save
+                        </i>
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+        <!-- Listado -->
+        <section class="cinema-list-section">
+
+            <div class="cinema-list-heading">
+
+                <div>
+                    <span class="cinema-eyebrow">
+                        MI COLECCIÓN
+                    </span>
+
+                    <h2>Registros guardados</h2>
+                </div>
+
+                <span class="cinema-count">
+                    <%= peliculas.length %> registros
+                </span>
+
+            </div>
+
+            <% if (peliculas.length === 0) { %>
+
+                <div class="card-panel cinema-empty center-align">
+
+                    <i class="material-icons cinema-empty-icon">
+                        local_movies
+                    </i>
+
+                    <h3>
+                        Todavía no hay películas o series registradas
+                    </h3>
+
+                    <p>
+                        Completa el formulario para comenzar
+                        tu colección cinematográfica.
+                    </p>
+
+                </div>
+
+            <% } else { %>
+
+                <div class="card cinema-table-card">
+
+                    <table class="highlight responsive-table">
+
+                        <thead>
+                            <tr>
+                                <th>N.º</th>
+                                <th>Título</th>
+                                <th>Género</th>
+                                <th>Año</th>
+                                <th>Plataforma</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <% peliculas.forEach(
+                                (pelicula, indice) => {
+                            %>
+
+                                <tr>
+                                    <td><%= indice + 1 %></td>
+
+                                    <td>
+                                        <strong>
+                                            <%= pelicula.titulo %>
+                                        </strong>
+                                    </td>
+
+                                    <td>
+                                        <%= pelicula.genero %>
+                                    </td>
+
+                                    <td>
+                                        <%= pelicula.anio %>
+                                    </td>
+
+                                    <td>
+                                        <%= pelicula.plataforma %>
+                                    </td>
+
+                                    <td>
+
+                                        <% if (
+                                            pelicula.estado === "Pendiente"
+                                        ) { %>
+
+                                            <span class="chip status-pendiente">
+                                                Pendiente
+                                            </span>
+
+                                        <% } else if (
+                                            pelicula.estado === "Viendo"
+                                        ) { %>
+
+                                            <span class="chip status-viendo">
+                                                Viendo
+                                            </span>
+
+                                        <% } else { %>
+
+                                            <span class="chip status-finalizada">
+                                                Finalizada
+                                            </span>
+
+                                        <% } %>
+
+                                    </td>
+                                </tr>
+
+                            <% }) %>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            <% } %>
+
+        </section>
+
+        <!-- Sección con imagen -->
+        <section class="cinema-feature row">
+
+            <div class="col s12 m7 cinema-feature-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1200&q=80"
+                    alt="Sala de cine"
+                >
+
+            </div>
+
+            <div class="col s12 m5 cinema-feature-copy">
+
+                <i class="material-icons">
+                    theaters
+                </i>
+
+                <h2>
+                    Tu próxima historia comienza aquí
+                </h2>
+
+                <p>
+                    Una lista sencilla para organizar
+                    tus noches de películas y series.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer class="cinema-footer">
+        <strong>CineList</strong>
+        · Laboratorio Semana 04 · 2026
+    </footer>
+
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js">
+    </script>
+
+    <script>
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+                const selects =
+                    document.querySelectorAll("select");
+
+                M.FormSelect.init(selects);
+            }
+        );
+    </script>
+
+</body>
+</html>
