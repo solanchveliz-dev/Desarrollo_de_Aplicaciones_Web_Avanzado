@@ -7,7 +7,22 @@ exports.create = (req, res) => {
 };
 
 exports.list = (req, res) => {
-  res.status(200).json(service.list());
+  const hasPagination = req.query.page !== undefined || req.query.limit !== undefined;
+  if (!hasPagination) return res.status(200).json(service.list());
+
+  const page = Number(req.query.page || 1);
+  const limit = Number(req.query.limit || 5);
+  if (!Number.isInteger(page) || page < 1 || !Number.isInteger(limit) || limit < 1) {
+    const error = new Error("page y limit deben ser enteros positivos");
+    error.statusCode = 400;
+    throw error;
+  }
+
+  res.status(200).json(service.list(page, limit));
+};
+
+exports.notifications = (req, res) => {
+  res.status(200).json(service.listNotifications(req.params.id));
 };
 
 exports.assign = (req, res) => {

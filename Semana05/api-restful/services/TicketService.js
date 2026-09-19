@@ -40,8 +40,30 @@ class TicketService {
     return ticket;
   }
 
-  list() {
-    return this.repo.findAll();
+  list(page, limit) {
+    const tickets = this.repo.findAll();
+    if (page === undefined || limit === undefined) return tickets;
+
+    const start = (page - 1) * limit;
+    return {
+      data: tickets.slice(start, start + limit),
+      pagination: {
+        page,
+        limit,
+        total: tickets.length,
+        totalPages: Math.ceil(tickets.length / limit)
+      }
+    };
+  }
+
+  listNotifications(id) {
+    if (!this.repo.findById(id)) {
+      const error = new Error("Ticket no encontrado");
+      error.statusCode = 404;
+      throw error;
+    }
+
+    return this.notificationService.listByTicketId(id);
   }
 
   deleteTicket(id) {
