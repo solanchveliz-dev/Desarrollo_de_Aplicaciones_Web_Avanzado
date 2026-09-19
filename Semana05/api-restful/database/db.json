@@ -1,5 +1,94 @@
 {
-  "tickets": [],
+  "tickets": [
+    {
+      "id": "4e578590-a7e2-4b40-8a4f-fa9572efef80",
+      "title": "Problema de acceso",
+      "description": "El usuario no puede iniciar sesión",
+      "status": "nuevo",
+      "priority": "high",
+      "assignedUser": null
+    },
+    {
+      "id": "78c9dc84-4e63-4c47-ad36-eef0ee60eed0",
+      "title": "Problema de acceso",
+      "description": "El usuario no puede iniciar sesión",
+      "status": "nuevo",
+      "priority": "high",
+      "assignedUser": "Naomi Veliz"
+    },
+    {
+      "id": "a3cb8205-03a3-4b5c-838b-73b24699a5c7",
+      "title": "Prueba real de correo Gmail",
+      "description": "Validacion de envio a velezemprender@gmail.com",
+      "status": "nuevo",
+      "priority": "high",
+      "assignedUser": null
+    },
+    {
+      "id": "dde4dcb6-bbca-4888-9454-38a63349801b",
+      "title": "Prueba Gmail corregida",
+      "description": "Envio real al destinatario de prueba",
+      "status": "nuevo",
+      "priority": "high",
+      "assignedUser": null
+    },
+    {
+      "id": "7a398f63-6172-44dd-b9a3-e7c2ad8d3a7e",
+      "title": "Prueba final Gmail",
+      "description": "Confirmacion de envio a velezemprender@gmail.com",
+      "status": "nuevo",
+      "priority": "high",
+      "assignedUser": null
+    },
+    {
+      "id": "1f2a7a2f-391b-4eb1-8153-7f7408335570",
+      "title": "Prueba SMTP directa",
+      "description": "Prueba estable sin Nodemon",
+      "status": "nuevo",
+      "priority": "high",
+      "assignedUser": null
+    },
+    {
+      "id": "d42ad023-9eb6-4d8c-81a5-525b48ac701a",
+      "title": "Prueba SMTP directa",
+      "description": "Prueba estable sin Nodemon",
+      "status": "nuevo",
+      "priority": "high",
+      "assignedUser": null
+    },
+    {
+      "id": "3050a7cc-49c3-406d-8103-6bf653692c3d",
+      "title": "Prueba Gmail con datos",
+      "description": "Prueba real de envio usando conexion de datos",
+      "status": "nuevo",
+      "priority": "high",
+      "assignedUser": null
+    },
+    {
+      "id": "fd5be2b0-29ce-4145-a8c2-543771b81bac",
+      "title": "Prueba de notificacion para profesor",
+      "description": "Correo de prueba enviado desde la API RESTful",
+      "status": "nuevo",
+      "priority": "high",
+      "assignedUser": null
+    },
+    {
+      "id": "3241d560-aa30-4970-80f4-5031572719fd",
+      "title": "Prueba gmail",
+      "description": "Prueba desarrollo web",
+      "status": "nuevo",
+      "priority": "high",
+      "assignedUser": null
+    },
+    {
+      "id": "948225f5-d0bf-47a6-9911-c861d8e17be7",
+      "title": "Prueba final para profesor",
+      "description": "Este correo debe llegar a earevalo@tecsup.edu.pe",
+      "status": "nuevo",
+      "priority": "high",
+      "assignedUser": null
+    }
+  ],
   "notifications": [
     {
       "id": "4fc30c0c-1077-4434-b7a5-1506ebff2e6c",
@@ -21,6 +110,90 @@
       "message": "El ticket b438e4a7-7eec-4dcb-b9b2-87dbc1f12712 cambió a asignado",
       "status": "pending",
       "ticketId": "b438e4a7-7eec-4dcb-b9b2-87dbc1f12712"
+    },
+    {
+      "id": "64f8996c-61b7-42a9-b35c-dfe198111b0b",
+      "type": "email",
+      "message": "Nuevo ticket creado: Problema de acceso",
+      "status": "pending",
+      "ticketId": "4e578590-a7e2-4b40-8a4f-fa9572efef80"
+    },
+    {
+      "id": "bceeffe5-79bd-4d72-863d-fb1a5e4fa4eb",
+      "type": "email",
+      "message": "Nuevo ticket creado: Problema de acceso",
+      "status": "pending",
+      "ticketId": "78c9dc84-4e63-4c47-ad36-eef0ee60eed0"
+    },
+    {
+      "id": "01a292a7-5b2d-43c8-bf62-fe08a6beeda7",
+      "type": "email",
+      "message": "El ticket 78c9dc84-4e63-4c47-ad36-eef0ee60eed0 fue asignado a Naomi Veliz",
+      "status": "pending",
+      "ticketId": "78c9dc84-4e63-4c47-ad36-eef0ee60eed0"
+    },
+    {
+      "id": "9a1b8f8a-5b40-4215-aaf8-03b4e1fba279",
+      "type": "email",
+      "message": "Nuevo ticket creado: Prueba real de correo Gmail",
+      "status": "pending",
+      "ticketId": "a3cb8205-03a3-4b5c-838b-73b24699a5c7"
+    },
+    {
+      "id": "c2101679-54fe-421a-8d20-fd26342469ea",
+      "type": "email",
+      "message": "Nuevo ticket creado: Prueba Gmail corregida",
+      "status": "pending",
+      "ticketId": "dde4dcb6-bbca-4888-9454-38a63349801b"
+    },
+    {
+      "id": "c8da2c64-bc16-4f05-83c5-53c3e448dc1d",
+      "type": "email",
+      "message": "Nuevo ticket creado: Prueba final Gmail",
+      "status": "pending",
+      "ticketId": "7a398f63-6172-44dd-b9a3-e7c2ad8d3a7e"
+    },
+    {
+      "id": "8137ebbd-ec78-43cc-8842-8a71a01c52fe",
+      "type": "email",
+      "message": "Nuevo ticket creado: Prueba SMTP directa",
+      "status": "failed",
+      "ticketId": "1f2a7a2f-391b-4eb1-8153-7f7408335570"
+    },
+    {
+      "id": "629c5737-c246-469a-8a4b-e5afba1531a3",
+      "type": "email",
+      "message": "Nuevo ticket creado: Prueba SMTP directa",
+      "status": "failed",
+      "ticketId": "d42ad023-9eb6-4d8c-81a5-525b48ac701a"
+    },
+    {
+      "id": "88fa5a41-0151-4010-8031-ba1905f5559d",
+      "type": "email",
+      "message": "Nuevo ticket creado: Prueba Gmail con datos",
+      "status": "sent",
+      "ticketId": "3050a7cc-49c3-406d-8103-6bf653692c3d"
+    },
+    {
+      "id": "07c1b6fb-dc5e-4961-9435-ae722efc4750",
+      "type": "email",
+      "message": "Nuevo ticket creado: Prueba de notificacion para profesor",
+      "status": "sent",
+      "ticketId": "fd5be2b0-29ce-4145-a8c2-543771b81bac"
+    },
+    {
+      "id": "5a7817fc-68c9-4985-b5df-8524803fcc50",
+      "type": "email",
+      "message": "Nuevo ticket creado: Prueba gmail",
+      "status": "sent",
+      "ticketId": "3241d560-aa30-4970-80f4-5031572719fd"
+    },
+    {
+      "id": "04b36552-770a-4e07-b905-a9a79d65eca7",
+      "type": "email",
+      "message": "Nuevo ticket creado: Prueba final para profesor",
+      "status": "pending",
+      "ticketId": "948225f5-d0bf-47a6-9911-c861d8e17be7"
     }
   ]
 }

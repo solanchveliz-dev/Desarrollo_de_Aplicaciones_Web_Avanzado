@@ -20,8 +20,19 @@ class NotificationService {
 
     if (type === "email") {
       this.emailService.sendEmail(message)
-        .then(() => console.log("Notificacion por email enviada"))
-        .catch(error => console.error("No se pudo enviar la notificacion por email:", error.message));
+        .then(info => {
+          this.repo.update(notification.id, { status: "sent" });
+          console.log(`Notificacion por email enviada a ${info.accepted.join(", ")}`);
+        })
+        .catch(error => {
+          this.repo.update(notification.id, { status: "failed" });
+          console.error("No se pudo enviar la notificacion por email", {
+            message: error.message,
+            code: error.code,
+            response: error.response,
+            responseCode: error.responseCode
+          });
+        });
     }
 
     return savedNotification;
