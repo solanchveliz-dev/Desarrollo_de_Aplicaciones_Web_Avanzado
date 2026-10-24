@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Social Media - Posts</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="/css/styles.css" rel="stylesheet">
+</head>
+<body class="app-shell">
+  <nav class="app-nav">
+    <div class="nav-wrapper">
+      <div class="container">
+        <a href="/" class="brand-logo">Social Media</a>
+        <ul class="right">
+          <li><a href="/posts/new"><i class="material-icons left">add</i>Publicar</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container page-wrap">
+    <div class="page-heading">
+      <div>
+        <h1>Publicaciones</h1>
+        <p>Comparte algo con la comunidad.</p>
+      </div>
+      <a href="/posts/new" class="btn btn-app waves-effect waves-light">
+        <i class="material-icons left">add</i>Crear publicación
+      </a>
+    </div>
+
+    <% if (!posts.length) { %>
+      <div class="empty-state">
+        <i class="material-icons large">collections</i>
+        <h5>Aún no hay publicaciones</h5>
+        <p class="form-intro">Sé la primera persona en compartir algo.</p>
+        <a href="/posts/new" class="btn btn-app btn-accent waves-effect waves-light">Crear primera publicación</a>
+      </div>
+    <% } %>
+
+    <div class="row">
+      <% posts.forEach((post) => { %>
+        <div class="col s12 m6 l4">
+          <article class="card post-card">
+            <% if (post.imageUrl) { %>
+              <div class="card-image">
+                <img src="<%= post.imageUrl %>" alt="Imagen de <%= post.title %>" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="post-image-fallback">Imagen no disponible</div>
+              </div>
+            <% } %>
+            <div class="card-content">
+              <div class="post-author">
+                <i class="material-icons tiny">person</i>
+                <%= post.user ? `${post.user.name} ${post.user.lastName}` : 'Autor no disponible' %>
+              </div>
+              <span class="card-title"><%= post.title %></span>
+              <p class="post-content"><%= post.content %></p>
+              <div class="section">
+                <% (post.hashtags || []).forEach((hashtag) => { %>
+                  <span class="chip chip-app">#<%= hashtag.replace(/^#/, '') %></span>
+                <% }) %>
+              </div>
+              <p class="post-meta">
+                <i class="material-icons tiny">schedule</i>
+                <%= new Date(post.createdAt).toLocaleDateString('es-PE') %>
+              </p>
+            </div>
+            <div class="card-action">
+              <a href="/posts/<%= post._id %>/edit" class="action-link">
+                <i class="material-icons">edit</i>Editar
+              </a>
+              <form action="/posts/<%= post._id %>/delete" method="POST" class="right">
+                <button type="submit" class="delete-button" title="Eliminar publicación">
+                  <i class="material-icons">delete</i>Eliminar
+                </button>
+              </form>
+            </div>
+          </article>
+        </div>
+      <% }) %>
+    </div>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
