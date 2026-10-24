@@ -106,7 +106,7 @@ export default function CharacterSearch() {
       if (filters.gender) query.set("gender", filters.gender);
 
       try {
-        const url = `https://rickandmortyapi.com/api/character${query.size ? `?${query.toString()}` : ""}`;
+        const url = `/api/rickandmorty/character${query.size ? `?${query.toString()}` : ""}`;
         const response = await fetch(url, { signal: controller.signal });
 
         if (response.status === 404) {
@@ -117,7 +117,10 @@ export default function CharacterSearch() {
         }
 
         if (!response.ok) {
-          throw new Error(`La búsqueda falló (${response.status}).`);
+          const details: { error?: string } = await response.json();
+          throw new Error(
+            details.error ?? `La búsqueda falló (${response.status}).`,
+          );
         }
 
         const data: CharacterResponse = await response.json();
