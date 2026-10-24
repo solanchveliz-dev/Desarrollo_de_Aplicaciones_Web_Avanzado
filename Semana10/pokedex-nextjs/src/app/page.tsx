@@ -1,69 +1,109 @@
-import Image from "next/image";
+// SSG: portada estática para elegir entre los dos universos disponibles.
+import Link from "next/link";
+import { FaArrowRight, FaDragon, FaFlask } from "react-icons/fa";
+
+const universes = [
+  {
+    href: "/pokemon",
+    eyebrow: "UNIVERSO 01 · KANTO Y MÁS ALLÁ",
+    title: "Pokédex",
+    description:
+      "Descubre criaturas, evoluciones y poderes en una aventura por todas las regiones.",
+    action: "Entrar al Pokédex",
+    icon: FaDragon,
+    accent: "from-cyan-400/20 via-blue-500/10 to-violet-500/20",
+    iconColor: "text-cyan-300",
+  },
+  {
+    href: "/rickandmorty",
+    eyebrow: "UNIVERSO 02 · DIMENSIONES INFINITAS",
+    title: "Rick & Morty",
+    description:
+      "Cruza el portal y conoce a los habitantes más extraños del multiverso.",
+    action: "Cruzar el portal",
+    icon: FaFlask,
+    accent: "from-lime-400/20 via-emerald-500/10 to-violet-500/20",
+    iconColor: "text-lime-300",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
+    <main className="relative flex min-h-screen flex-1 items-center overflow-hidden bg-[#070810] px-5 py-16 text-white sm:px-10">
+      <div aria-hidden="true" className="rm-stars pointer-events-none absolute inset-0" />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -left-40 top-[-12rem] h-[34rem] w-[34rem] rounded-full bg-violet-700/20 blur-[130px]"
+      />
+      <div className="relative mx-auto w-full max-w-7xl">
+        <div className="mb-12 max-w-3xl sm:mb-16">
+          <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold tracking-[0.2em] text-lime-200">
+            <span className="h-2 w-2 animate-pulse rounded-full bg-lime-400" />
+            EL MULTIVERSO TE ESTÁ ESPERANDO
+          </p>
+          <h1 className="text-5xl font-black tracking-tight sm:text-7xl lg:text-8xl">
+            Dos mundos.
+            <span className="block bg-linear-to-r from-lime-200 via-cyan-200 to-violet-300 bg-clip-text text-transparent">
+              Infinitas historias.
+            </span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="mt-6 max-w-xl text-lg leading-8 text-slate-300 sm:text-xl">
+            Elige tu destino: explora una Pokédex llena de sorpresas o viaja
+            entre dimensiones con Rick y Morty.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <div className="grid gap-5 lg:grid-cols-2">
+          {universes.map((universe, index) => {
+            const Icon = universe.icon;
+            return (
+              <Link
+                key={universe.href}
+                href={universe.href}
+                className={`group relative isolate overflow-hidden rounded-[2rem] border border-white/10 bg-linear-to-br ${universe.accent} p-7 shadow-2xl shadow-black/20 transition duration-500 hover:-translate-y-1 hover:border-white/25 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-lime-300 sm:p-10`}
+              >
+                <div
+                  aria-hidden="true"
+                  className="absolute -right-12 -top-14 -z-10 h-64 w-64 rounded-full border border-white/10 transition duration-700 group-hover:scale-125 group-hover:rotate-12"
+                />
+                <div
+                  aria-hidden="true"
+                  className="absolute -right-4 top-8 -z-10 h-44 w-44 rounded-full border border-white/10"
+                />
+                <div className="flex min-h-72 flex-col justify-between sm:min-h-80">
+                  <div>
+                    <p className="text-xs font-bold tracking-[0.18em] text-slate-300">
+                      {universe.eyebrow}
+                    </p>
+                    <div className={`mt-8 ${universe.iconColor}`}>
+                      <Icon aria-hidden="true" size={42} />
+                    </div>
+                    <h2 className="mt-5 text-4xl font-black sm:text-5xl">
+                      {universe.title}
+                    </h2>
+                    <p className="mt-4 max-w-md leading-7 text-slate-200">
+                      {universe.description}
+                    </p>
+                  </div>
+                  <span className="mt-8 inline-flex items-center gap-3 font-bold text-white">
+                    {universe.action}
+                    <FaArrowRight
+                      aria-hidden="true"
+                      className="transition-transform group-hover:translate-x-1"
+                    />
+                  </span>
+                </div>
+                <span className="absolute bottom-7 right-8 text-6xl font-black text-white/10 sm:text-7xl">
+                  0{index + 1}
+                </span>
+              </Link>
+            );
+          })}
         </div>
-      </main>
-    </div>
+        <p className="mt-8 text-sm text-slate-500">
+          Una experiencia creada para explorar sin límites.
+        </p>
+      </div>
+    </main>
   );
 }
