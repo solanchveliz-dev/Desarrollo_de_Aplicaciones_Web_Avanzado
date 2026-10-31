@@ -130,7 +130,7 @@ export function TasksPage() {
           </div>
         </CardContent>
       </Card>
-      <PaginationControl page={currentPage} pageCount={pageCount} onPageChange={setPage} />
+      <PaginationControl page={currentPage} pageCount={pageCount} pageSize={pageSize} totalItems={filtered.length} onPageChange={setPage} />
       <AlertDialog open={Boolean(deleteTarget)} onOpenChange={(open) => !open && setDeleteTarget(null)}>
         <AlertDialogContent>
           <AlertDialogHeader><AlertDialogTitle>¿Eliminar tarea?</AlertDialogTitle><AlertDialogDescription>Se eliminará “{deleteTarget?.description}”. Esta acción no se puede deshacer.</AlertDialogDescription></AlertDialogHeader>

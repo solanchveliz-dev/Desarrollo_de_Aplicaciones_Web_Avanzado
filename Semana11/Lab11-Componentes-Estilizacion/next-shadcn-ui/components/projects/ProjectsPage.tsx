@@ -152,7 +152,7 @@ export function ProjectsPage() {
           })}
         </div>
       )}
-      <PaginationControl page={currentPage} pageCount={pageCount} onPageChange={setPage} />
+      <PaginationControl page={currentPage} pageCount={pageCount} pageSize={pageSize} totalItems={filtered.length} onPageChange={setPage} />
 
       <ProjectDetailsDialog
         project={details}

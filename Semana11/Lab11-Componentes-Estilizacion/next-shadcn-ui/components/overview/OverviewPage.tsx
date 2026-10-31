@@ -48,7 +48,7 @@ export function OverviewPage({ onNavigate }: { onNavigate: (section: DashboardSe
 
   return (
     <div className="space-y-5">
-      <div className="grid gap-4 sm:grid-cols-2 2xl:grid-cols-4">
+      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
         {metrics.map(({ title, value, note, icon: Icon, color }) => (
           <Card key={title} className="border-0 shadow-sm">
             <CardContent className="flex items-center justify-between p-5">

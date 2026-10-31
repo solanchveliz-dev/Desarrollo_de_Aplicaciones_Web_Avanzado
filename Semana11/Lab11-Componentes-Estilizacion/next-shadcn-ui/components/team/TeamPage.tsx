@@ -111,7 +111,7 @@ export function TeamPage() {
           </div>
         </CardContent>
       </Card>
-      <PaginationControl page={currentPage} pageCount={pageCount} onPageChange={setPage} />
+      <PaginationControl page={currentPage} pageCount={pageCount} pageSize={pageSize} totalItems={filtered.length} onPageChange={setPage} />
       <MemberDetailsDialog member={details} open={Boolean(details)} onOpenChange={(open) => !open && setDetails(null)} onEdit={() => details && openEdit(details)} />
       <AlertDialog open={Boolean(deleteTarget)} onOpenChange={(open) => !open && setDeleteTarget(null)}>
         <AlertDialogContent>
