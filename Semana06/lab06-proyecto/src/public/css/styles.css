@@ -1,0 +1,263 @@
+:root {
+  --ink: #102a43;
+  --navy: #123b5d;
+  --blue: #2f6f9f;
+  --mist: #eef3f7;
+  --line: #d7e0e8;
+  --accent: #d9825b;
+  --white: #ffffff;
+  --muted: #66788a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body.app-shell {
+  min-height: 100vh;
+  margin: 0;
+  background: var(--mist);
+  color: var(--ink);
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+}
+
+.app-nav {
+  height: 72px;
+  line-height: 72px;
+  background: var(--navy);
+  box-shadow: 0 3px 14px rgba(16, 42, 67, 0.18);
+}
+
+.app-nav .brand-logo {
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.app-nav a,
+.app-nav i {
+  color: var(--white);
+}
+
+.page-wrap {
+  padding: 3.5rem 0 4rem;
+}
+
+.page-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.page-heading h1 {
+  margin: 0 0 0.5rem;
+  color: var(--ink);
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+
+.page-heading p,
+.form-intro {
+  margin: 0;
+  color: var(--muted);
+}
+
+.btn-app {
+  height: auto;
+  padding: 0.75rem 1.2rem;
+  border-radius: 7px;
+  background: var(--blue);
+  box-shadow: none;
+  font-weight: 700;
+  line-height: 1.4;
+  text-transform: none;
+}
+
+.btn-app:hover,
+.btn-app:focus {
+  background: var(--navy);
+  box-shadow: 0 5px 12px rgba(18, 59, 93, 0.2);
+}
+
+.btn-accent {
+  background: var(--accent);
+}
+
+.btn-accent:hover,
+.btn-accent:focus {
+  background: #bd6845;
+}
+
+.post-card {
+  overflow: hidden;
+  min-height: 100%;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--white);
+  box-shadow: 0 7px 20px rgba(16, 42, 67, 0.08);
+}
+
+.post-card .card-image img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+}
+
+.post-image-fallback {
+  display: none;
+  height: 120px;
+  align-items: center;
+  justify-content: center;
+  background: #e1e9f0;
+  color: var(--muted);
+}
+
+.post-card .card-content {
+  padding: 1.4rem;
+}
+
+.post-author {
+  margin-bottom: 0.9rem;
+  color: var(--blue);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.post-card .card-title {
+  color: var(--ink);
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.post-content {
+  color: #304b63;
+  line-height: 1.6;
+}
+
+.post-meta {
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.post-meta i {
+  margin-right: 0.25rem;
+  vertical-align: middle;
+  font-size: 1rem;
+}
+
+.chip-app {
+  height: 28px;
+  margin: 0.2rem 0.25rem 0.2rem 0;
+  background: #e1edf5;
+  color: var(--navy);
+  line-height: 28px;
+}
+
+.post-card .card-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--line);
+  padding: 0.8rem 1.4rem;
+}
+
+.action-link,
+.delete-button {
+  border: 0;
+  background: transparent;
+  color: var(--blue);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  text-transform: none;
+}
+
+.delete-button {
+  color: #b9584d;
+}
+
+.action-link i,
+.delete-button i {
+  margin-right: 0.2rem;
+  vertical-align: middle;
+}
+
+.empty-state,
+.form-panel {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--white);
+  box-shadow: 0 7px 20px rgba(16, 42, 67, 0.07);
+}
+
+.empty-state {
+  padding: 3.5rem 1.5rem;
+  text-align: center;
+}
+
+.empty-state i {
+  color: var(--blue);
+}
+
+.form-panel {
+  padding: 2.2rem;
+}
+
+.form-panel h1 {
+  margin-top: 0;
+  color: var(--ink);
+  font-size: 2rem;
+}
+
+.form-panel .input-field input:focus,
+.form-panel .input-field textarea:focus {
+  border-bottom-color: var(--blue);
+  box-shadow: 0 1px 0 0 var(--blue);
+}
+
+.form-panel .input-field label.active,
+.form-panel .input-field input:focus + label,
+.form-panel .input-field textarea:focus + label {
+  color: var(--blue);
+}
+
+.form-panel .select-wrapper input.select-dropdown:focus {
+  border-bottom-color: var(--blue);
+}
+
+.form-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.error-panel {
+  border-left: 4px solid #b9584d;
+  border-radius: 6px;
+  background: #fbe9e7;
+  color: #8b3c35;
+}
+
+@media (max-width: 600px) {
+  .page-wrap {
+    padding-top: 2.2rem;
+  }
+
+  .page-heading {
+    display: block;
+  }
+
+  .page-heading .btn-app {
+    margin-top: 1.25rem;
+  }
+
+  .app-nav .brand-logo {
+    font-size: 1.15rem;
+  }
+
+  .form-panel {
+    padding: 1.3rem;
+  }
+}
